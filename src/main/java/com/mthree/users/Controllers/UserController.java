@@ -1,5 +1,6 @@
 package com.mthree.users.Controllers;
 
+import com.mthree.events.Models.Event;
 import com.mthree.users.Models.User;
 import com.mthree.users.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +27,9 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST,value="/events/{id}/users")
-    public void addUser(@RequestBody User user)
+    public void addUser(@RequestBody User user, @PathVariable String id)
     {
+        user.setEvent(new Event(id+"", "", ""));
         service.addUser(user);
     }
 

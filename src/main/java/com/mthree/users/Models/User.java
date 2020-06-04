@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 public class User {
 
     @Id
-    int id;
+    String id;
     String name;
 
     @ManyToOne
@@ -18,17 +18,17 @@ public class User {
 
     public User(){}
 
-    public User(int id, String name, Event event) {
+    public User(String id, String name, String eventId) {
         this.id = id;
         this.name = name;
-        this.event = event;
+        this.event = new Event(eventId, "", "");
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
