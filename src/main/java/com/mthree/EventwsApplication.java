@@ -1,0 +1,18 @@
+package com.mthree;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+@SpringBootApplication
+@EnableJpaRepositories({"com.mthree.users","com.mthree.events"})
+@EntityScan({"com.mthree.users","com.mthree.events"})
+public class EventwsApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(EventwsApplication.class, args);
+    }
+
+}
